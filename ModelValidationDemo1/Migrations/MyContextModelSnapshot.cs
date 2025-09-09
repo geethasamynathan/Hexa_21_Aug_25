@@ -43,6 +43,26 @@ namespace ModelValidationDemo1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Location = "New York",
+                            Name = "HR"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Location = "San Francisco",
+                            Name = "IT"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Location = "Chicago",
+                            Name = "Finance"
+                        });
                 });
 
             modelBuilder.Entity("ModelValidationDemo1.Models.Employee", b =>
@@ -52,12 +72,6 @@ namespace ModelValidationDemo1.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("ContractEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ContractStart")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -99,6 +113,34 @@ namespace ModelValidationDemo1.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateOfBirth = new DateTime(1985, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfJoining = new DateTime(2008, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentId = 1,
+                            Email = "geethasamynathan2011@gmail.com",
+                            EmployeeType = 2,
+                            FirstName = "Geetha",
+                            LastName = "Samynathan",
+                            Phone = "9500774477",
+                            Salary = 9000m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateOfBirth = new DateTime(1990, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfJoining = new DateTime(2014, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentId = 2,
+                            Email = "fransy@gmail.com",
+                            EmployeeType = 1,
+                            FirstName = "Fransy",
+                            LastName = "Sam",
+                            Phone = "9500774488",
+                            Salary = 9000m
+                        });
                 });
 
             modelBuilder.Entity("ModelValidationDemo1.Models.Employee", b =>
@@ -106,47 +148,7 @@ namespace ModelValidationDemo1.Migrations
                     b.HasOne("ModelValidationDemo1.Models.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.OwnsOne("ModelValidationDemo1.Models.Address", "Address", b1 =>
-                        {
-                            b1.Property<int>("EmployeeId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)");
-
-                            b1.Property<string>("Line1")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)");
-
-                            b1.Property<string>("Line2")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)");
-
-                            b1.Property<string>("PinCode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("State")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)");
-
-                            b1.HasKey("EmployeeId");
-
-                            b1.ToTable("Employees");
-
-                            b1.WithOwner()
-                                .HasForeignKey("EmployeeId");
-                        });
-
-                    b.Navigation("Address")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Department");

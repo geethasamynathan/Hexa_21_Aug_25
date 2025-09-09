@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Personal\\Hexa_19_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj": {}
+    "C:\\Personal\\Hexa_19_Aug_25\\Hexa_21_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj": {}
   },
   "projects": {
-    "C:\\Personal\\Hexa_19_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj": {
+    "C:\\Personal\\Hexa_19_Aug_25\\Hexa_21_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal\\Hexa_19_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj",
+        "projectUniqueName": "C:\\Personal\\Hexa_19_Aug_25\\Hexa_21_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj",
         "projectName": "ModelValidationDemo1",
-        "projectPath": "C:\\Personal\\Hexa_19_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj",
+        "projectPath": "C:\\Personal\\Hexa_19_Aug_25\\Hexa_21_Aug_25\\ModelValidationDemo1\\ModelValidationDemo1.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal\\Hexa_19_Aug_25\\ModelValidationDemo1\\obj\\",
+        "outputPath": "C:\\Personal\\Hexa_19_Aug_25\\Hexa_21_Aug_25\\ModelValidationDemo1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

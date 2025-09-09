@@ -6,7 +6,7 @@ namespace ModelValidationDemo1.Models
 {
     public enum EmployeeType
     {
-        Permanent,
+        Permanent=1,
         Contract,
         Intern
     }
@@ -49,15 +49,15 @@ namespace ModelValidationDemo1.Models
 
         [Required, EnumDataType(typeof(EmployeeType))]
         public EmployeeType EmployeeType { get; set; } 
-        public Address Address { get; set; }
+        //public Address Address { get; set; }
         [Required]
 
         public int DepartmentId { get; set; }
 
         public Department? Department { get; set; }
 
-        public DateTime? ContractStart { get; set; }
-        public DateTime? ContractEnd { get; set; }
+        //public DateTime? ContractStart { get; set; }
+        //public DateTime? ContractEnd { get; set; }
     
 
         public  IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
