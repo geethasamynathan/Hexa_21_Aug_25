@@ -21,10 +21,6 @@ public partial class BikeStoresContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Customer1> Customer1s { get; set; }
-
-    public virtual DbSet<Customer2> Customers1 { get; set; }
-
     public virtual DbSet<Employee> Employees { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
@@ -74,36 +70,6 @@ public partial class BikeStoresContext : DbContext
         });
 
         modelBuilder.Entity<Customer>(entity =>
-        {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64D829BD1EA8");
-
-            entity.ToTable("Customer");
-
-            entity.HasIndex(e => e.Mobile, "UQ__Customer__6FAE078277C03A33").IsUnique();
-
-            entity.Property(e => e.Location)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasDefaultValue("Coimbatore");
-            entity.Property(e => e.Name)
-                .HasMaxLength(200)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<Customer1>(entity =>
-        {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64D862F06F66");
-
-            entity.ToTable("Customer1");
-
-            entity.HasIndex(e => e.Mobile, "unique_mobileno").IsUnique();
-
-            entity.Property(e => e.Name)
-                .HasMaxLength(200)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<Customer2>(entity =>
         {
             entity.HasKey(e => e.CustomerId).HasName("PK__customer__CD65CB851CFEF014");
 

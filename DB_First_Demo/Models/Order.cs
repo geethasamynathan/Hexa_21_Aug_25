@@ -21,7 +21,7 @@ public partial class Order
 
     public int StaffId { get; set; }
 
-    public virtual Customer2? Customer { get; set; }
+    public virtual Customer? Customer { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 

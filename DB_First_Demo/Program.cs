@@ -13,6 +13,7 @@ namespace DB_First_Demo
             // Add services to the container.
             builder.Services.AddDbContext<BikeStoresContext>(options =>
                            options.UseSqlServer(builder.Configuration.GetConnectionString("BikeStoresDatabase")));
+                          // .UseLazyLoadingProxies());
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
