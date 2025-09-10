@@ -9,6 +9,7 @@ namespace RouteDemo.Repository
         public Task<Student> AddStudent(Student student);
         public Task<Student> UpdateStudent(int id, Student student);
         public Task<Student> DeleteStudent(int id);
+        public Task<List<Student>> GEtStudentByName(string name);
         public Task<List<Student>> GetStudentByAge(int age);
         public Task<List<Student>> GetStudentByGenderandCity(string? gender,string? city);
         public Task<List<Student>> SearchStudents(StudentSearch studentSearch);

@@ -84,18 +84,32 @@ namespace RouteDemo.Repository
             return null;
         }
 
+        public async Task<List<Student>> GEtStudentByName(string name)
+        {
+            var student = await _context.Students.
+                 AsNoTracking().
+                 Where(s => s.StudentName.ToLower().Contains(name.ToLower()))
+                 .ToListAsync();
+
+
+            if (student == null)
+                return null;
+            else
+            return student;
+        }
+
         public async Task<List<Student>> SearchStudents(StudentSearch studentSearch)
         {
             var filteredStudents = new List<Student>();
             if (!string.IsNullOrEmpty(studentSearch.Name))
-                filteredStudents = await _context.Students.Where(s => s.StudentName.Contains(studentSearch.Name,
-                    StringComparison.OrdinalIgnoreCase)).ToListAsync();
+                filteredStudents = await _context.Students.Where(s => s.StudentName.ToLower().
+                Contains(studentSearch.Name.ToLower())).ToListAsync();
             if (!string.IsNullOrEmpty(studentSearch.Gender))
                 filteredStudents = await _context.Students.Where(s =>
-                s.Gender.Equals(studentSearch.Gender, StringComparison.OrdinalIgnoreCase)).ToListAsync();
+                s.Gender.ToLower()==studentSearch.Gender.ToLower()).ToListAsync();
             if (!string.IsNullOrEmpty(studentSearch.City))
                 filteredStudents = await _context.Students.Where(s =>
-                s.City.Equals(studentSearch.City, StringComparison.OrdinalIgnoreCase)).ToListAsync();
+                s.City.ToLower()== studentSearch.City.ToLower()).ToListAsync();
 
             if (!filteredStudents.Any())
             {

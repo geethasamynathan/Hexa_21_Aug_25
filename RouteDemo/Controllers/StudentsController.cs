@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RouteDemo.Models;
 using RouteDemo.Repository;
 
 namespace RouteDemo.Controllers
@@ -45,19 +46,41 @@ namespace RouteDemo.Controllers
             return Ok(student);
         }
 
-        [HttpGet("SearchByGenderCity")]
-        public async Task<IActionResult> GetStudentByGenderandCity([FromQuery] string? gender, [FromQuery] string? city)
+        //[HttpGet("SearchByGenderCity")]
+        //public async Task<IActionResult> GetStudentByGenderandCity([FromQuery] string? gender, [FromQuery] string? city)
+        //{
+        //    var students = await _studentRepo.GetStudentByGenderandCity(gender, city);
+        //    if (students == null || students.Count == 0)
+        //    {
+        //        return NotFound();
+        //    }
+        //    else
+        //    {
+        //        return Ok(students);
+        //    }
+        //}
+
+
+        //[HttpGet("searchByName/{name:alpha}")]
+        //public async Task<IActionResult> GetStudentByName(string name)
+        //{
+        //    var students =await  _studentRepo.GEtStudentByName(name);
+        //   if(students.Count == 0)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(students);
+        //}
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchStudents([FromQuery] StudentSearch studentSearch)
         {
-            var students= await _studentRepo.GetStudentByGenderandCity(gender, city);
-            if(students == null || students.Count == 0  )
+            var students = await _studentRepo.SearchStudents(studentSearch);
+            if (students.Count == 0)
             {
                 return NotFound();
             }
-            else
-            {
-                return Ok(students);
-            }
+            return Ok(students);
         }
-
     }
 }
