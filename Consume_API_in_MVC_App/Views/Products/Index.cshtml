@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Consume_API_in_MVC_App.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.category_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.model_year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.list_price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.list_price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

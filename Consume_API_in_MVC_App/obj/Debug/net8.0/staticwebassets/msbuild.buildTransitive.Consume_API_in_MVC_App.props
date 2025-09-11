@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Consume_API_in_MVC_App.props" />
+</Project>
