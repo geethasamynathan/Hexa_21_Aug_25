@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "UGuJRZmb3DHeOTDd0tKYigbT9cvqI1xEm0qLxbk7SG0=",
+  "Source": "SchoolAttendanceAPI",
+  "BasePath": "_content/SchoolAttendanceAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

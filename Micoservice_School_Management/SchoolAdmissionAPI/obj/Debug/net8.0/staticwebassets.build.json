@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "m9KaAHYY9Zw1XOdntp7JxtFHJr9B0LOqbwyWHocrlSs=",
+  "Source": "SchoolAdmissionAPI",
+  "BasePath": "_content/SchoolAdmissionAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
