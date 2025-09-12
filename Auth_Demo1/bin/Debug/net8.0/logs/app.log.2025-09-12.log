@@ -1,0 +1,17 @@
+[2025-09-12 16:16:23,761] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: https://localhost:7043
+[2025-09-12 16:16:23,797] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: http://localhost:5278
+[2025-09-12 16:16:23,813] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Application started. Press Ctrl+C to shut down.
+[2025-09-12 16:16:23,816] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Hosting environment: Development
+[2025-09-12 16:16:23,820] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Content root path: C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Auth_Demo1
+[2025-09-12 16:16:57,400] INFO  [5] Auth_Demo1.Controllers.AuthController ((null)) - Login attempt for user: Geetha
+[2025-09-12 16:16:57,406] WARN  [5] Auth_Demo1.Controllers.AuthController ((null)) - This is a warning log example.
+[2025-09-12 16:16:57,419] ERROR [5] Auth_Demo1.Controllers.AuthController ((null)) - This is an error log example.
+[2025-09-12 16:16:58,986] INFO  [18] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (80ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2025-09-12 16:19:50,600] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: https://localhost:7043
+[2025-09-12 16:19:50,639] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: http://localhost:5278
+[2025-09-12 16:19:50,646] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Application started. Press Ctrl+C to shut down.
+[2025-09-12 16:19:50,649] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Hosting environment: Development
+[2025-09-12 16:19:50,652] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Content root path: C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Auth_Demo1

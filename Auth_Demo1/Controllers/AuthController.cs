@@ -16,13 +16,17 @@ namespace Auth_Demo1.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AuthController> _logger;
+
         public AuthController(UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ILogger<AuthController> logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -72,6 +76,10 @@ namespace Auth_Demo1.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
+
+            _logger.LogInformation("Login attempt for user: {UserName}", loginModel.UserName);
+            _logger.LogWarning("This is a warning log example."); ;
+            _logger.LogError("This is an error log example."); 
             var user = await _userManager.FindByNameAsync(loginModel.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password))
             {

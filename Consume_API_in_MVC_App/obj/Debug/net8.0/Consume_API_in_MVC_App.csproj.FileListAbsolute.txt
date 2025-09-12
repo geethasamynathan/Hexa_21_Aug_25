@@ -1,3 +1,4 @@
+C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\log4net.config
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\appsettings.Development.json
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\appsettings.json
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Consume_API_in_MVC_App.staticwebassets.runtime.json
@@ -7,6 +8,7 @@ C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Consume_API_in_MVC_App.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Consume_API_in_MVC_App.pdb
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Humanizer.dll
+C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\log4net.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
@@ -40,6 +42,7 @@ C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.JSInterop.dll
 C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Consume_API_in_MVC_App\bin\Debug\net8.0\Microsoft.NET.StringTools.dll

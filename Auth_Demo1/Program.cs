@@ -13,6 +13,16 @@ namespace Auth_Demo1
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            Directory.CreateDirectory(Path.Combine(builder.Environment.ContentRootPath, "Logs"));
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
+            builder.Logging.AddLog4Net("log4net.config");
+            var logsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+            Directory.CreateDirectory(logsPath);
+            Console.WriteLine("Logs Directory: " + logsPath);
+
+
             // Add services to the container.
             builder.Services.AddDbContext<Authentication.ApplicationDbContext>(options =>
                            options.UseSqlServer(builder.Configuration.GetConnectionString("authconnection")));
