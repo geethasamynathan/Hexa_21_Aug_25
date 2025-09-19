@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h1>Course List</h1>
+    <div class="row">
+      <button onclick="renderForLoop()">List all course using For loop</button>
+      <button onclick="renderMap()">List all course using Map function</button>
+    </div>
+    <p>click the button to get all courses</p>
+
+    <ul id="course-list"></ul>
+    <p id="summary"></p>
+    <script>
+      const courses = [
+        {
+          id: 101,
+          title: "React JS",
+          level: "Beginner",
+          hours: 48,
+          price: 4999,
+        },
+        {
+          id: 102,
+          title: "Azure",
+          level: "Intermediate",
+          hours: 70,
+          price: 13999,
+        },
+        {
+          id: 103,
+          title: "Data Engineering",
+          level: "Beginner",
+          hours: 56,
+          price: 8999,
+        },
+        {
+          id: 104,
+          title: "Data Analytics",
+          level: "Beginner",
+          hours: 60,
+          price: 7999,
+        },
+      ];
+
+      function renderForLoop() {
+        const list = document.getElementById("course-list");
+        list.textContent = "";
+        for (const c of courses) {
+          const li = document.createElement("li");
+
+          li.innerHTML = `<strong>${c.title}</strong>
+        <small> .${c.level}  .${c.hours}  .${c.price}</small>
+        `;
+          list.appendChild(li);
+        }
+      }
+
+      function renderMap() {
+        const list = document.getElementById("course-list");
+        const intemsHTML = courses
+          .map(
+            (c) => `
+          <li>
+        <strong>${c.title} </strong> <small> ${c.level} - ${c.hours}- ${c.price} </small>
+        </li>
+        `
+          )
+          .join("");
+        list.innerHTML = intemsHTML;
+      }
+    </script>
+  </body>
+</html>

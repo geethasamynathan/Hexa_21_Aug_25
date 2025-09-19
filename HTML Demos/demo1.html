@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>sample webapge</title>
+    <meta nam="description" content="Clean, responsive .net fullstack " />
+   <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container topbar" role="navigation" aria-label="Primary">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true">W</div>
+            <span>Web Dev Guide</span>
+          </div>      
+      <nav id="site-nav">
+        <button class="menu-btn" aria-expanded="false" 
+        aria-controls="menu-list" onclick="toggelMenu()">Menu</button>
+          <ul id="menu-list">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#html">Lists in html</a></li>
+            <li><a href="#css">CSS</a></li>
+            <li><a href="#javascript">Javascript</a></li>
+            <li><a href="#angular">Angular</a></li>
+          </ol>       
+      </nav>
+     </div>
+    </header>
+    <!-- == Overview Hero == -->
+    <div class="container hero" id="overview">
+        <div>
+            <p class="tagline">Learn 3 Pillars of Web: HTML for structure,CSS for Style &  JS for behaviour</p>
+            <h1>HTML, CSS & Javascript- Building Real WebPages</h1>
+            <p>
+                Here this is single file example shows semantic layout (header,nav,main,footer) an image,Scroll down for examples
+
+            </p>
+            <div class="cta">
+                <a class="btn Primary" href="#html">Start with HTML</a>
+                <a class="btn" href="#css">Style with CSSS</a>
+                <a class="btn" href="#js">Interact using js</a>
+            </div>
+        </div>
+<div class="mock" aria-label="Illustration">
+      <!-- Inline SVG illustration (no external requests) -->
+      <img alt="HTML CSS JS concept illustration" src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 340'>
+        <defs>
+          <linearGradient id='g' x1='0' x2='1'>
+            <stop offset='0' stop-color='%2322d3ee'/>
+            <stop offset='1' stop-color='%23a78bfa'/>
+          </linearGradient>
+        </defs>
+        <rect width='100%' height='100%' rx='16' fill='%230b1220' stroke='rgba(255,255,255,.12)'/>
+        <g transform='translate(110 90)'>
+          <rect x='-70' y='-40' width='140' height='80' rx='10' fill='url(%23g)' />
+          <text x='0' y='8' text-anchor='middle' fill='%230b1020' font-family='Segoe UI,Roboto,Arial' font-size='26'>HTML</text>
+        </g>
+        <g transform='translate(260 170)'>
+          <rect x='-70' y='-40' width='140' height='80' rx='10' fill='%23a78bfa' />
+          <text x='0' y='8' text-anchor='middle' fill='white' font-family='Segoe UI,Roboto,Arial' font-size='26'>CSS</text>
+        </g>
+        <g transform='translate(410 250)'>
+          <rect x='-70' y='-40' width='140' height='80' rx='10' fill='%2322d3ee' />
+          <text x='0' y='8' text-anchor='middle' fill='%230b1020' font-family='Segoe UI,Roboto,Arial' font-size='22'>JavaScript</text>
+        </g>
+      </svg>" />
+    </div>
+    </div>
+
+    <!-- ==Main Content -->
+<main class="container" id="main-content">
+    <section id="html" aria-labelledby="html-title">
+        <h2 id="html-title">HTML :Structure</h2>
+        <div class="grid">
+            <article class="card">
+                <h3 style="color:yellowgreen">Semantic Layout</h3>
+                <p> Use  semantic tags to describe the page structure:</p>
+                <pre><code>&lt;header&gt;Brand &amp; nav&lt;/header&gt;
+&lt;main&gt;
+  &lt;section&gt;Content&lt;/section&gt;
+  &lt;article&gt;Standalone piece&lt;/article&gt;
+  &lt;aside&gt;Tips/side info&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Copyright2025 &lt;/footer&gt;
+                </code></pre>
+            </article>
+            <artcile class="card">
+                <h3>Link and Images</h3>
+                <p> Add accessible Image and Links</p>
+                 <pre><code>&lt;a href="/tutorials/html"&gt;HTML Guide&lt;/a&gt;
+&lt;img src="logo.png" alt="Site logo" width="160" height="48" /&gt;</code></pre>
+
+            </artcile>
+            <article class="card">
+                <h3> Simple Form</h3>
+                <p>Basic Form Controls</p>  
+                <pre><code>&lt;form&gt;
+  &lt;label&gt;Email
+    &lt;input type="email" required /&gt;
+  &lt;/label&gt;
+  &lt;button&gt;Subscribe&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </article>
+        </div>
+
+        <aside role="note">Tip: Always use meaningful alt text on images and label your inputs for easy access</aside>
+    </section>
+
+    <section id="css" aria-labelledby="css-title">
+        <h2 id="css-title"> CSS :Good look and Feel for page</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Selectors</h3>
+                <pre><code> header { background: #111827; color: #fff }
+nav a { padding: .5rem .75rem; border-radius: .5rem }
+.card { border:1px solid rgba(255,255,255,.08); border-radius: .75rem }
+        </code></pre>
+            </article>
+            <article class="card">
+                <h3>Layout (Flex or Grid)</h3>
+                <pre><code>.nav { display:flex; gap:1rem; justify-content:center }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem }</code></pre>
+            </article>
+            <article class="card">
+                <h3>Responsiveness</h3>
+                 <pre><code>@media (max-width: 768px){
+  .grid3 { grid-template-columns:1fr }
+  .nav { flex-direction:column; align-items:flex-start }
+}</code></pre>
+            </article>
+        </div>
+ <aside role="note">Tip: Kep a design scale for spacing,border radius and shadows for good lok and feel</aside>
+    </section>
+</main>
+  </body>
+</html>

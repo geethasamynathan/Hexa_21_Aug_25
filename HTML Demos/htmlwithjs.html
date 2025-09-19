@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p {
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      //     function toggle(){
+
+      //     }
+      //   function sayHello() {
+      //     document.getElementById("greet").innerHTML =
+      //       "Welcome to Javascript session";
+      //   }
+    </script>
+  </head>
+  <body>
+    <!-- <button onclick="sayHello()">Click here</button> -->
+
+    <p id="greet" hidden>Hey, Welcome to Javascript session</p>
+
+    <button
+      id="toggle"
+      onclick="const p=document.getElementById('greet');
+    const show=p.hasAttribute('hidden');
+    p.toggleAttribute('hidden')
+    this.setAttribute('aria-expanded',String(show));
+    this.textContent=show?'Hide Details':'Show Details'
+    p.style.color='cyan';
+    p.style.fontSize='20px';
+    "
+    >
+      Show Details
+    </button>
+  </body>
+</html>
