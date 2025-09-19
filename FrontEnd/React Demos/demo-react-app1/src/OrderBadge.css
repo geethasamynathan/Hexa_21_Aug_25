@@ -1,0 +1,29 @@
+
+.badge{
+    padding:4px 8px;
+    border-radius:999px;
+    font-weight: 600;
+}
+
+.Pending{
+    background:#ecfdf5;
+    color:saddlebrown;
+    border: 1px solid moccasin;
+}
+
+
+.Shipped{
+    background:honeydew;
+    color:darkgreen;
+    border: 1px solid palegreen;
+}
+.Delayed{
+    background:mistyrose;
+    color:firebrick;
+    border: 1px solid lightcoral;
+}
+.Cancelled{
+    background:whitesmoke;
+    color:darkslateblue;
+    border: 1px solid lightgrey;
+}
