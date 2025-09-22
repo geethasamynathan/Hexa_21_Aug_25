@@ -3,7 +3,8 @@ import "./App.css";
 import Header from "./Header";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "./UserContext";
-
+import SimpleForm from "./SimpleForm";
+import RegistrationForm from "./RegistrationForm";
 function App() {
   const userInfo = {
     name: "Test user",
@@ -11,8 +12,10 @@ function App() {
   };
   return (
     <UserContext.Provider value={userInfo}>
-      <Header />
-      <ProfilePage />
+      {/* <Header />
+      <ProfilePage /> */}
+      {/* <SimpleForm /> */}
+      <RegistrationForm />
     </UserContext.Provider>
   );
 }
