@@ -2,17 +2,37 @@ import logo from "./logo.svg";
 import "./App.css";
 import OrdersList from "./OrdersList";
 import ThemeToggle from "./ThemeToggle";
-
+import UserList from "./UserList";
+import { useState } from "react";
+import UserItem from "./UserItem";
 export default function App() {
+  const userDetails = [
+    { id: 1, name: "Divya sri", role: "Designer" },
+    { id: 2, name: "Jeeva", role: "Developer" },
+    { id: 3, name: "Ashok", role: "UI/UX Designer" },
+    { id: 4, name: "Rachel", role: "Tester" },
+    { id: 5, name: "Janani", role: "Sourcing Specialist" },
+  ];
+
+  const [selectedUser, setSelectedUser] = useState(null);
   return (
     <>
       <div>
-        <header>
+        {/* <header>
           <h1 className="App"> React Basics Demo</h1>
         </header>
       </div>
-      {/* <OrdersList /> */}
-      <ThemeToggle />
+      <OrdersList />
+      <ThemeToggle /> */}
+
+        <h1> Click a user to View the Details</h1>
+        <UserList users={userDetails} onSelect={setSelectedUser} />
+
+        {selectedUser && <UserItem user={selectedUser} />}
+
+        {/* <UserCard name="Geetha" position="Senioour Consultant" />
+      <UserCard name="Nikitha" position="Associate developer" /> */}
+      </div>
     </>
   );
 }
