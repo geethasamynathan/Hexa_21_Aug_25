@@ -5,9 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:var(--bg);
+  color:var(--fg);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body.light{
+  --bg:#ffffff;
+  --fg:#111111;
+}
+
+body.dark{
+  --bg:#121212;
+  --fg:#eaeaea;
+
+}
+
+/* body{
+  background: var(--bg);
+  color:var(--fg);
+  transition: background 0.25s ease, color 0.25s ease;
+} */

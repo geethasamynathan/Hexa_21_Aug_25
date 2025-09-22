@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import OrdersList from "./OrdersList";
+import ThemeToggle from "./ThemeToggle";
 
 export default function App() {
   return (
@@ -10,7 +11,8 @@ export default function App() {
           <h1 className="App"> React Basics Demo</h1>
         </header>
       </div>
-      <OrdersList />
+      {/* <OrdersList /> */}
+      <ThemeToggle />
     </>
   );
 }
