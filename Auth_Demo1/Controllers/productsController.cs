@@ -78,7 +78,7 @@ namespace Auth_Demo1.Controllers
         // POST: api/products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult<product>> Postproduct(product product)
         {
             _context.products.Add(product);
@@ -89,7 +89,7 @@ namespace Auth_Demo1.Controllers
 
         // DELETE: api/products/5
         [HttpDelete("{id}")]
-        [Authorize (Roles="User")]
+        //[Authorize (Roles="User")]
         public async Task<IActionResult> Deleteproduct(int id)
         {
             var product = await _context.products.FindAsync(id);
