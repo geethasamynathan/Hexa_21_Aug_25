@@ -7,8 +7,8 @@ export default function ProductList() {
   const [error, setError] = useState("");
   useEffect(() => {
     console.log(getAllProductsUsingAxios.data);
-
-    getAllProductsUsingAxios()
+    getAllProducts()
+      // getAllProductsUsingAxios()
       .then(setProducts)
       .catch((err) => setError(err.message));
     // fetch("https://fakestoreapi.com/products")
