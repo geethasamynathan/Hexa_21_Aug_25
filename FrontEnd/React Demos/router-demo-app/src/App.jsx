@@ -10,6 +10,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Employees from "./components/EmployeeList";
 import EmployeeDetail from "./components/EmployeeDetail";
 import NotFound from "./components/NotFound";
+import ProductList from "./components/Products/ProductList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<h1>Welcome to Employee Management</h1>} />
         <Route path="/login" element={<Login />} />
-
+        <Route path="/products" element={<ProductList />} />
         <Route
           path="/dashboard"
           element={

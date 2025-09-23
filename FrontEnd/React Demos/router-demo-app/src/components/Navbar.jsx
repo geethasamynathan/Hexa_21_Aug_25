@@ -13,6 +13,7 @@ export default function Navbar() {
       <Link to="/dashboard">Dashboard</Link>|{""}
       <Link to="/employees">Employees</Link> |{""}
       <Link to="/add-employee">Add Employee</Link>|{""}
+      <Link to="/Products">Products</Link>|{""}
       <button onClick={handleLogout}>Logout</button>
     </nav>
   );
