@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getAllProducts } from "../../Services/ProductService";
+
+import { getAllProductsUsingAxios } from "../../Services/ProductAPIService";
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   useEffect(() => {
-    getAllProducts()
+    console.log(getAllProductsUsingAxios.data);
+
+    getAllProductsUsingAxios()
       .then(setProducts)
       .catch((err) => setError(err.message));
     // fetch("https://fakestoreapi.com/products")
