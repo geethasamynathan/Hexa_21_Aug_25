@@ -34,48 +34,74 @@ export default function EditProduct() {
   };
 
   return (
-    <div>
-      <h2> Edit Prodcut</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="product_id"
-          placeholder="id"
-          value={product.product_id || ""}
-          readOnly
-          onChange={handleChange}
-        />
-        <input
-          name="product_name"
-          placeholder="name"
-          value={product.product_name || ""}
-          onChange={handleChange}
-        />
-        <input
-          name="brand_id"
-          placeholder="Brand Id"
-          value={product.brand_id || ""}
-          onChange={handleChange}
-        />
-        <input
-          name="category_id"
-          placeholder="Category_Id"
-          value={product.category_id || ""}
-          onChange={handleChange}
-        />
-        <input
-          name="model_year"
-          placeholder="Model Year"
-          value={product.model_year || ""}
-          onChange={handleChange}
-        />
-        <input
-          name="list_price"
-          placeholder="List Price"
-          value={product.list_price || ""}
-          onChange={handleChange}
-        />
-
-        <button type="submit">Update</button>
+    <div className=" container mt-5">
+      <h2 className="mb-4 text-warning"> Edit Prodcut</h2>
+      <form onSubmit={handleSubmit} className="card p-4 shadow">
+        <div className="mb-3">
+          <label className="form-label">Product Id</label>
+          <input
+            name="product_id"
+            placeholder="id"
+            className="form-control"
+            value={product.product_id || ""}
+            readOnly
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Product Name</label>
+          <input
+            name="product_name"
+            className="form-control"
+            placeholder="name"
+            value={product.product_name || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Brand Id</label>
+          <input
+            name="brand_id"
+            placeholder="Brand Id"
+            className="form-control"
+            value={product.brand_id || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Category Id</label>
+          <input
+            name="category_id"
+            className="form-control"
+            placeholder="Category_Id"
+            value={product.category_id || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Model Year</label>
+          <input
+            name="model_year"
+            className="form-control"
+            placeholder="Model Year"
+            value={product.model_year || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Price</label>
+          <input
+            name="list_price"
+            placeholder="List Price"
+            className="form-control"
+            value={product.list_price || ""}
+            onChange={handleChange}
+          />
+          <div />
+        </div>
+        <button type="submit" className="btn btn-primary w-100">
+          Update
+        </button>
       </form>
     </div>
   );

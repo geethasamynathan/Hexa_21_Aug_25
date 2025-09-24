@@ -20,23 +20,42 @@ export default function ProductList() {
     loadProducts();
   };
   return (
-    <div>
-      <h2> Product Lsit</h2>
-      <Link to="/add">➕ Add Product</Link>
-      <ul>
-        {products.map((p) => (
-          <li key={p.product_id}>
-            <Link to={`/products/${p.product_id}`}>
-              {p.product_id} {p.product_name} - {p.list_price}
-            </Link>{" "}
-            {" | "}
-            <Link to={`/edit/${p.product_id}`}> ✏️ Edit</Link> {" | "}
-            <button onClick={() => handleDelete(p.product_id)}>
-              🚮 Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className="container mt-5">
+      <h2 className="mb-3 text-success"> Product Lsit</h2>
+      <Link to="/add" className=" btn btn-success mb-3">
+        ➕ Add Product
+      </Link>
+      <table className="table table-stripped table-bordered shadow">
+        <thead className="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th> Model Year</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((p) => (
+            <tr key={p.product_id}>
+              <td>{p.product_id}</td>
+              <td>{p.product_name}</td>
+              <td>{p.brand_id}</td>
+              <td>{p.category_id}</td>
+              <td>{p.model_year}</td>
+              <td>{p.list_price}</td>
+              <td>
+                <Link to={`/edit/${p.product_id}`}> ✏️ Edit</Link>
+                <button onClick={() => handleDelete(p.product_id)}>
+                  🚮 Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

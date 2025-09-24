@@ -1,0 +1,112 @@
+[2025-09-24 09:25:54,002] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: https://localhost:7043
+[2025-09-24 09:25:54,031] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Now listening on: http://localhost:5278
+[2025-09-24 09:25:54,038] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Application started. Press Ctrl+C to shut down.
+[2025-09-24 09:25:54,043] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Hosting environment: Development
+[2025-09-24 09:25:54,047] INFO  [1] Microsoft.Hosting.Lifetime ((null)) - Content root path: C:\Personal\Hexa_19_Aug_25\Hexa_21_Aug_25\Auth_Demo1
+[2025-09-24 09:26:02,295] INFO  [7] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:26:02,425] INFO  [10] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:26:02,492] INFO  [10] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:26:02,506] INFO  [7] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:26:31,954] INFO  [20] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:26:31,977] INFO  [18] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:31:36,163] INFO  [15] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+WHERE [p].[product_id] = @__p_0
+[2025-09-24 09:31:36,182] INFO  [15] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+WHERE [p].[product_id] = @__p_0
+[2025-09-24 09:40:58,056] INFO  [17] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:40:58,075] INFO  [21] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:40:58,089] INFO  [21] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:40:58,103] INFO  [21] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:45:55,738] INFO  [18] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:45:55,758] INFO  [21] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:45:55,771] INFO  [18] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:45:55,780] INFO  [18] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:46:02,925] INFO  [3] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+WHERE [p].[product_id] = @__p_0
+[2025-09-24 09:46:02,936] INFO  [16] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+WHERE [p].[product_id] = @__p_0
+[2025-09-24 09:46:09,780] INFO  [17] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (11ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int16), @p4='?' (Size = 255) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [production].[products] SET [brand_id] = @p0, [category_id] = @p1, [list_price] = @p2, [model_year] = @p3, [product_name] = @p4
+OUTPUT 1
+WHERE [product_id] = @p5;
+[2025-09-24 09:46:09,878] INFO  [17] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:46:09,895] INFO  [21] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:46:14,474] INFO  [16] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+WHERE [p].[product_id] = @__p_0
+[2025-09-24 09:46:14,517] INFO  [16] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (26ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [production].[products]
+OUTPUT 1
+WHERE [product_id] = @p0;
+[2025-09-24 09:46:14,529] INFO  [13] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:46:46,165] INFO  [3] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int16), @p4='?' (Size = 255) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [production].[products] ([brand_id], [category_id], [list_price], [model_year], [product_name])
+OUTPUT INSERTED.[product_id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2025-09-24 09:46:46,288] INFO  [16] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:46:46,302] INFO  [16] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:47:24,719] INFO  [10] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:47:24,738] INFO  [13] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:47:24,753] INFO  [20] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
+[2025-09-24 09:47:24,768] INFO  [3] Microsoft.EntityFrameworkCore.Database.Command ((null)) - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[product_id], [p].[brand_id], [p].[category_id], [p].[list_price], [p].[model_year], [p].[product_name]
+FROM [production].[products] AS [p]
