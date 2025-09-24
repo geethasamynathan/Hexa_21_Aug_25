@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "../Services/ProductService";
-
+import { toast } from "react-toastify";
 export default function AddProduct() {
   const [product, setProduct] = useState({
     product_name: "",
@@ -34,8 +34,14 @@ export default function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createProduct(product);
-    navigate("/");
+    try {
+      await createProduct(product);
+      toast.success("✅ Product added successfully");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error("❌ Failed to add product. Please try again.");
+    }
   };
 
   return (

@@ -1,25 +1,66 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { getAllProducts, deleteProduct } from "../Services/ProductService";
+import {
+  getAllProducts,
+  deleteProduct,
+  searchProducts,
+} from "../Services/ProductService";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(15);
+  const [searchTerm, setSearchTerm] = useState("");
+  const debounceRef = useRef(null);
   useEffect(() => {
     loadProducts();
   }, []);
 
-  const loadProducts = async () => {
+  const loadProducts = async (query = "") => {
+    try {
+      const response = query
+        ? await searchProducts(query)
+        : await getAllProducts(); // ✅ use backend search
+      setProducts(response);
+      setCurrentPage(1); // reset to page 1 on new search
+    } catch (err) {
+      console.error("Failed to fetch products:", err);
+    }
+  };
+  const handleDelete = async (id) => {
+    await deleteProduct(id);
+    // refresh list
     const response = await getAllProducts();
-    console.log(response);
     setProducts(response);
   };
 
-  const handleDelete = async (id) => {
-    await deleteProduct(id);
-    loadProducts();
+  const handleSearchChange = (e) => {
+    console.log("HandleSearchMethod called");
+
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    if (value.length === 0) {
+      loadProducts();
+      return;
+    }
+    if (value.length >= 3) {
+      debounceRef.current = setTimeout(() => {
+        loadProducts(value);
+      }, 3000);
+    }
   };
+
+  //handle Enter Key
+  const handleEnterSearchKeyDown = (e) => {
+    if (e.key == "Enter" && searchTerm.length >= 3) {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      loadProducts(searchTerm);
+    }
+  };
+
+  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
@@ -28,106 +69,153 @@ export default function ProductList() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const renderPageNumbers = () => {
-    let pages = [];
+    const pages = [];
+    const maxVisible = 5; // how many pages to show around current
 
-    if (currentPage > 3) {
-      pages.push(1, 2, "...");
-    } else {
-      for (let i = 1; i <= Math.min(3, totalPages); i++) {
-        if (i > 2 && i < totalPages - 1) {
-          pages.push(i);
-        }
-      }
-      for (let i = currentPage - 2; i <= currentPage + 2; i++) {
-        if (i > 2 && i < totalPages - 1) pages.push(i);
+    // Always show first page
+    if (currentPage > 2) {
+      pages.push(1);
+      if (currentPage > 3) {
+        pages.push("...");
       }
     }
 
-    if (currentPage < totalPages - 2) {
-      pages.push("...", totalPages - 1, totalPages);
-    } else {
-      for (let i = totalPages - 2; i <= totalPages; i++) {
-        if (i > 0) {
-          pages.push(i);
-        }
-      }
+    // Show window around current page
+    let start = Math.max(2, currentPage - 2);
+    let end = Math.min(totalPages - 1, currentPage + 2);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
     }
-    return [...new Set(pages)];
+
+    // Always show last page
+    if (currentPage < totalPages - 1) {
+      if (currentPage < totalPages - 2) {
+        pages.push("...");
+      }
+      pages.push(totalPages);
+    }
+
+    return pages;
   };
+
   return (
     <div className="container mt-5">
-      <h2 className="mb-3 text-success"> Product Lsit</h2>
-      <Link to="/add" className=" btn btn-success mb-3">
+      <h2 className="mb-3 text-success">Product List</h2>
+      <div className="input-group-mb-3">
+        <span className="input-group-text">
+          <i className="bi bi-search"></i>
+        </span>
+        <input
+          typeof="text"
+          className="form-control"
+          placeholder="Search Product name ..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          onKeyDown={handleEnterSearchKeyDown}
+        />
+      </div>
+      <Link to="/add" className="btn btn-success mb-3">
         ➕ Add Product
       </Link>
-      <table className="table table-stripped table-bordered shadow">
+
+      <table className="table table-striped table-bordered shadow">
         <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Brand</th>
             <th>Category</th>
-            <th> Model Year</th>
+            <th>Model Year</th>
             <th>Price</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((p) => (
-            <tr key={p.product_id}>
-              <td>{p.product_id}</td>
-              <td>{p.product_name}</td>
-              <td>{p.brand_id}</td>
-              <td>{p.category_id}</td>
-              <td>{p.model_year}</td>
-              <td>{p.list_price}</td>
-              <td>
-                <Link to={`/edit/${p.product_id}`}> ✏️ Edit</Link>
-                <button onClick={() => handleDelete(p.product_id)}>
-                  🚮 Delete
-                </button>
+          {currentItems.length > 0 ? (
+            currentItems.map((p) => (
+              <tr key={p.product_id}>
+                <td>{p.product_id}</td>
+                <td>{p.product_name}</td>
+                <td>{p.brand_id}</td>
+                <td>{p.category_id}</td>
+                <td>{p.model_year}</td>
+                <td>{p.list_price}</td>
+                <td>
+                  <Link
+                    to={`/edit/${p.product_id}`}
+                    className="btn btn-sm btn-primary me-2"
+                  >
+                    ✏️ Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(p.product_id)}
+                    className="btn btn-sm btn-danger"
+                  >
+                    🚮 Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="7" className="text-center text-muted">
+                No products available
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
 
-      <nav>
-        <ul className="pagination justify-content-center">
-          <li className="{`page-item ${currentPage === 1 ? 'disabled':''}`}">
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              className="page-link"
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-          </li>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <nav>
+          <ul className="pagination justify-content-center">
+            {/* Prev button */}
+            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <button
+                onClick={() => paginate(currentPage - 1)}
+                className="page-link"
+                disabled={currentPage === 1}
+              >
+                Prev
+              </button>
+            </li>
 
-          {renderPageNumbers().map((num, idx) => (
+            {/* Page numbers */}
+            {renderPageNumbers().map((num, idx) => (
+              <li
+                key={idx}
+                className={`page-item ${currentPage === num ? "active" : ""} ${
+                  num === "..." ? "disabled" : ""
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => num !== "..." && paginate(num)}
+                >
+                  {num}
+                </button>
+              </li>
+            ))}
+
+            {/* Next button */}
             <li
-              key={idx}
-              className="{`page-item ${currentPage === num ? 'active':''} ${num==='...? 'disabled':''}`}"
+              className={`page-item ${
+                currentPage === totalPages ? "disabled" : ""
+              }`}
             >
               <button
                 className="page-link"
-                onClick={() => num !== "..." && paginate(num)}
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages}
               >
-                {num}
+                Next
               </button>
             </li>
-          ))}
-          <li className="{`page-item ${currentPage === totalpages? 'disabled':''}`}">
-            <button
-              className="page-link"
-              onClick={() => paginate(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      )}
     </div>
   );
 }

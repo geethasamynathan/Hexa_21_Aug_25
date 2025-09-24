@@ -17,7 +17,7 @@ function App() {
         <Route path="/edit/:product_id" element={<EditProduct />} />
         <Route path="/products/:id" element={<ProductList />} />
       </Routes>
-      <ProductList />
+      {/* <ProductList /> */}
     </BrowserRouter>
   );
 }

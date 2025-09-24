@@ -65,3 +65,13 @@ export const deleteProduct = async (id) => {
     handleError(error);
   }
 };
+export const searchProducts = async (name) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}/search/${encodeURIComponent(name)}`
+    );
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};

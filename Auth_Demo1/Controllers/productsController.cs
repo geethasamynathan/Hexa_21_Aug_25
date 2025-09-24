@@ -43,7 +43,20 @@ namespace Auth_Demo1.Controllers
 
             return product;
         }
+        [HttpGet("search/{name}")]
+        public async Task<ActionResult<IEnumerable<product>>> SearchProductByName(string name)
+        {
+            var products = await _context.products
+                .Where(p => p.product_name.Contains(name))
+                .ToListAsync();
 
+            if (products == null || products.Count == 0)
+            {
+                return NotFound($"No products found with name containing '{name}'");
+            }
+
+            return Ok(products);
+        }
         // PUT: api/products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
