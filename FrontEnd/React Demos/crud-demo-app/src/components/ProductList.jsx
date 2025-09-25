@@ -1,53 +1,64 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllProducts,
-  deleteProduct,
-  searchProducts,
-} from "../Services/ProductService";
+  fetchProducts,
+  removeProduct,
+  searchProductList,
+} from "../features/product/productSlice";
+// import {
+//   getAllProducts,
+//   deleteProduct,
+//   searchProducts,
+// } from "../Services/ProductService";
 
 export default function ProductList() {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { items: products, loading } = useSelector((state) => state.products);
+  //const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(15);
   const [searchTerm, setSearchTerm] = useState("");
   const debounceRef = useRef(null);
   useEffect(() => {
-    loadProducts();
+    dispatch(fetchProducts());
+    //loadProducts();
   }, []);
 
-  const loadProducts = async (query = "") => {
-    try {
-      const response = query
-        ? await searchProducts(query)
-        : await getAllProducts(); // ✅ use backend search
-      setProducts(response);
-      setCurrentPage(1); // reset to page 1 on new search
-    } catch (err) {
-      console.error("Failed to fetch products:", err);
-    }
-  };
+  // const loadProducts = async (query = "") => {
+  //   try {
+  //     const response = query
+  //       ? await searchProducts(query)
+  //       : await getAllProducts(); // ✅ use backend search
+  //     setProducts(response);
+  //     setCurrentPage(1); // reset to page 1 on new search
+  //   } catch (err) {
+  //     console.error("Failed to fetch products:", err);
+  //   }
+  // };
   const handleDelete = async (id) => {
-    await deleteProduct(id);
+    await dispatch(removeProduct(id));
+    // await deleteProduct(id);
     // refresh list
-    const response = await getAllProducts();
+    //const response = await getAllProducts();
+    const response = await fetchProducts();
     setProducts(response);
   };
 
   const handleSearchChange = (e) => {
-    console.log("HandleSearchMethod called");
-
     const value = e.target.value;
     setSearchTerm(value);
     if (debounceRef.current) clearTimeout(debounceRef.current);
 
     if (value.length === 0) {
-      loadProducts();
+      dispatch(fetchProducts);
+      //loadProducts();
       return;
     }
     if (value.length >= 3) {
       debounceRef.current = setTimeout(() => {
-        loadProducts(value);
+        dispatch(searchProductList(value));
+        // loadProducts(value);
       }, 3000);
     }
   };

@@ -1,24 +1,33 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProductById, updateProduct } from "../Services/ProductService";
+import { useDispatch, useSelector } from "react-redux";
+import { editProduct, fetchProducts } from "../features/product/productSlice";
+//import { getProductById, updateProduct } from "../Services/ProductService";
 
 export default function EditProduct() {
   const { product_id } = useParams();
-  console.log("id " + product_id);
-
-  const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
+  // const [product, setProduct] = useState({});
   const navigate = useNavigate();
+  const productFromStore = useSelector((state) =>
+    state.products.items.find((p) => p.product_id == product_id)
+  );
+  const [product, setProduct] = useState(productFromStore || {});
 
-  const loadProduct = async (product_id) => {
-    console.log("loadProduct called");
+  // const loadProduct = async (product_id) => {
+  //   console.log("loadProduct called");
 
-    const response = await getProductById(product_id);
-    setProduct(response);
-  };
+  //   const response = await getProductById(product_id);
+  //   setProduct(response);
+  // };
+
+  // useEffect(() => {
+  //   loadProduct(product_id);
+  // }, []);
 
   useEffect(() => {
-    loadProduct(product_id);
-  }, []);
+    if (productFromStore) setProduct(productFromStore);
+  }, [productFromStore]);
 
   const handleChange = (e) => {
     setProduct({
@@ -29,7 +38,8 @@ export default function EditProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateProduct(product_id, product);
+    await dispatch(editProduct({ id: product_id, product })).unwrap();
+    // await updateProduct(product_id, product);
     navigate("/");
   };
 

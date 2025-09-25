@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "../Services/ProductService";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../features/product/productSlice";
 export default function AddProduct() {
   const [product, setProduct] = useState({
     product_name: "",
@@ -10,22 +12,11 @@ export default function AddProduct() {
     model_year: 0,
     list_price: 0,
   });
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // const numeric_fields = [
-    //   "brand_id",
-    //   "category_id",
-    //   "model_year",
-    //   "list_price",
-    // ];
-
-    // setProduct({
-    //   ...product,
-    //   [name]: numeric_fields.includes(name) ? Number(value) : value,
-    // });
     setProduct({
       ...product,
       [e.target.name]: e.target.value,
@@ -35,7 +26,8 @@ export default function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createProduct(product);
+      await dispatch(addProduct(product)).unwrap();
+      // await createProduct(product);
       toast.success("✅ Product added successfully");
       navigate("/");
     } catch (error) {
