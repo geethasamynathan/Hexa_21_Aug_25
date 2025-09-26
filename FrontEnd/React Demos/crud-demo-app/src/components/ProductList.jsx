@@ -41,7 +41,7 @@ export default function ProductList() {
     // await deleteProduct(id);
     // refresh list
     //const response = await getAllProducts();
-    const response = await fetchProducts();
+    const response = await dispatch(fetchProducts());
     setProducts(response);
   };
 

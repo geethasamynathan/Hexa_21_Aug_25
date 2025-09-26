@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Auth_Demo1.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Auth_Demo1.Authentication
@@ -9,5 +10,7 @@ namespace Auth_Demo1.Authentication
         {
 
         }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
     }
 }
