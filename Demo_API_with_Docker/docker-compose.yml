@@ -1,0 +1,31 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Strong@Passw0rd
+    ports:
+      - "1435:1433"
+    networks:
+      - backend
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demoapi_with_docker
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=Demo_DB;User=sa;Password=Strong@Passw0rd;TrustServerCertificate=True;Encrypt=False
+    ports:
+      - "8090:8080"
+      - "8091:8081"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
